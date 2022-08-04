@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="613.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleshipGame.GUI.MainController">
+   <center>
+      <VBox fx:id="enemyField" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="103.0" prefWidth="815.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="textGameInfo" editable="false" layoutX="6.0" prefHeight="100.0" prefWidth="483.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="223.0" AnchorPane.topAnchor="3.0">
+               <font>
+                  <Font size="16.0" />
+               </font></TextArea>
+            <TextField layoutX="495.0" layoutY="23.0" prefHeight="27.0" prefWidth="51.0" AnchorPane.rightAnchor="116.0" fx:id="xTextField" />
+            <TextField fx:id="yTextField" layoutX="578.0" layoutY="23.0" prefHeight="27.0" prefWidth="48.0" AnchorPane.rightAnchor="36.0" />
+            <Label layoutX="558.0" layoutY="27.0" text="Y:" AnchorPane.rightAnchor="92.5" />
+            <Label layoutX="479.0" layoutY="28.0" text="X:" AnchorPane.rightAnchor="171.0" />
+            <Button defaultButton="true" layoutX="478.0" layoutY="58.0" mnemonicParsing="false" onAction="#attackButtonTap" prefHeight="27.0" prefWidth="149.0" text="Attack" AnchorPane.rightAnchor="35.0" />
+         </children>
+         <padding>
+            <Insets bottom="3.0" left="3.0" />
+         </padding>
+      </AnchorPane>
+   </bottom>
+   <right>
+      <AnchorPane prefHeight="394.0" prefWidth="224.0" style="-fx-background-color: teal;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="74.0" layoutY="7.0" text="Your field">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <GridPane fx:id="myField" gridLinesVisible="true" layoutX="22.0" layoutY="56.0" prefHeight="194.0" prefWidth="194.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <Pane layoutX="20.0" layoutY="279.0" prefHeight="150.0" prefWidth="197.0" style="-fx-border-color: black;">
+               <children>
+                  <Label layoutX="34.0" layoutY="43.0" text="Battleships:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="70.0" text="Cruisers:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="95.0" text="Destroyers:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="122.0" text="Submarines:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="battleshipsLabel" layoutX="154.0" layoutY="45.0" text="0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cruisersLabel" layoutX="153.0" layoutY="72.0" text="0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="destroyersLabel" layoutX="153.0" layoutY="97.0" text="0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="submarinesLabel" layoutX="153.0" layoutY="124.0" text="0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="31.0" layoutY="10.0" text="Enemy ships left">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <HBox alignment="BASELINE_LEFT" layoutX="29.0" layoutY="44.0" prefHeight="30.0" prefWidth="194.0" spacing="11.0">
+               <padding>
+                  <Insets left="1.0" />
+               </padding>
+            </HBox>
+            <Label layoutX="28.0" layoutY="39.0" text="1" />
+            <Label layoutX="46.0" layoutY="39.0" text="2" />
+            <Label layoutX="65.0" layoutY="39.0" text="3" />
+            <Label layoutX="84.0" layoutY="39.0" text="4" />
+            <Label layoutX="103.0" layoutY="39.0" text="5" />
+            <Label layoutX="122.0" layoutY="39.0" text="6" />
+            <Label layoutX="143.0" layoutY="39.0" text="7" />
+            <Label layoutX="162.0" layoutY="39.0" text="8" />
+            <Label layoutX="182.0" layoutY="39.0" text="9" />
+            <Label layoutX="199.0" layoutY="39.0" text="10" />
+            <Label layoutX="12.0" layoutY="56.0" text="1" />
+            <Label layoutX="11.0" layoutY="76.0" text="2" />
+            <Label layoutX="11.0" layoutY="95.0" text="3" />
+            <Label layoutX="11.0" layoutY="114.0" text="4" />
+            <Label layoutX="11.0" layoutY="134.0" text="5" />
+            <Label layoutX="11.0" layoutY="153.0" text="6" />
+            <Label layoutX="12.0" layoutY="172.0" text="7" />
+            <Label layoutX="11.0" layoutY="192.0" text="8" />
+            <Label layoutX="11.0" layoutY="212.0" text="9" />
+            <Label layoutX="6.0" layoutY="232.0" text="10" />
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <AnchorPane prefHeight="445.0" prefWidth="183.0" style="-fx-background-color: teal;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="9.0" layoutY="8.0" prefHeight="143.0" prefWidth="164.0" style="-fx-border-color: black;">
+               <children>
+                  <RadioButton fx:id="easyModeRadioButton" layoutX="15.0" layoutY="45.0" mnemonicParsing="false" text="Easy mode">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Mode" />
+                     </toggleGroup>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <Label layoutX="30.0" layoutY="9.0" text="Single player">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <RadioButton layoutX="15.0" layoutY="73.0" mnemonicParsing="false" selected="true" text="Normal mode" toggleGroup="$Mode">
+                     <font>
+                        <Font size="14.0" />
+                     </font></RadioButton>
+                  <Button layoutX="46.0" layoutY="104.0" mnemonicParsing="false" onAction="#newSingleGameButtonTap" text="New game" />
+               </children>
+            </Pane>
+            <Pane layoutX="9.0" layoutY="159.0" prefHeight="338.0" prefWidth="164.0" style="-fx-border-color: black;">
+               <children>
+                  <Label layoutX="39.0" layoutY="9.0" text="Multiplayer">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="47.0" layoutY="297.0" mnemonicParsing="false" onAction="#newMultiGameButtonTap" text="New game" />
+                  <RadioButton fx:id="serverRadioButton" layoutX="19.0" layoutY="44.0" mnemonicParsing="false" onAction="#multiRadioButtonSwitched" text="Server">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="multiplayer" />
+                     </toggleGroup>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton layoutX="19.0" layoutY="72.0" mnemonicParsing="false" onAction="#multiRadioButtonSwitched" selected="true" text="Client" toggleGroup="$multiplayer">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <TextField fx:id="ipTextField" layoutX="11.0" layoutY="127.0" prefHeight="27.0" prefWidth="143.0" />
+                  <Label layoutX="13.0" layoutY="104.0" text="IP">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="portTextField" layoutX="11.0" layoutY="186.0" prefHeight="27.0" prefWidth="143.0" />
+                  <Label layoutX="14.0" layoutY="163.0" text="Port">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nameTextField" layoutX="12.0" layoutY="249.0" prefHeight="27.0" prefWidth="143.0" />
+                  <Label layoutX="15.0" layoutY="226.0" text="Player's name">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
